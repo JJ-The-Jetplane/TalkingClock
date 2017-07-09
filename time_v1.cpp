@@ -103,27 +103,27 @@ int main(void){
 void convertClock(int hour, int minute){
 
     string ampmFlag = "pm";
-    string nameHours[] = {"Twelve", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+    string nameHours[] = {"Twelve ", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
                             "Nine", "Ten", "Eleven"};
-    string nameMinuteTens[] = {"Oh", "", " Twenty", " Thirty", " Fourty", " Fifty"};
-    string nameMinuteOnes[] = {"", " One ", " Two ", " Three ", " Four ", " Five ", " Six ", " Seven ", " Eight ", " Nine ", " Ten ",
-                                " Eleven ", " Twelve ", " Thirteen ", " Fourteen ", " Fifteen ", " Sixteen ", " Seventeen ", " Eighteen ", " Nineteen "};
+    string nameMinuteTens[] = {"Oh", "", "Twenty", "Thirty", "Fourty", "Fifty"};
+    string nameMinuteOnes[] = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+                                "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 
     if(hour <= 12) ampmFlag = "am";
 
     cout << "It's " << nameHours[hour%12]; //outputs the hour segment of the time
 
     if(minute == 0){ //if the minute is zero then no minute output is necessary. am/pm status is printed
-        cout << ampmFlag << "\n";
+        cout << " " << ampmFlag << "\n";
 
     }
 
-    if(minute >= 10  && minute < 20){//if the minute is between 10 and 20, it will be a "teen", so no Tens is needed
-        cout << nameMinuteOnes[minute] << ampmFlag << "\n";
+    else if(minute >= 10  && minute < 20){//if the minute is between 10 and 20, it will be a "teen", so no Tens is needed
+        cout << " " << nameMinuteOnes[minute] << " " << ampmFlag << "\n";
     }
 
     else{
-        cout << nameMinuteTens[minute/10] << nameMinuteOnes[minute%10] << ampmFlag << "\n"; //outputs the minute tens, and minute ones and am/pm status
+        cout << " " << nameMinuteTens[minute/10] << " " << nameMinuteOnes[minute%10] << " " << ampmFlag << "\n"; //outputs the minute tens, and minute ones and am/pm status
     }
 
 }
